@@ -17,13 +17,13 @@ pipeline {
 		stage('Compile') {
 				steps {
 					sh 'mkdir -p build'
-					sh 'javac -d build src/Hello.java'
+					sh 'javac -d build src/HelloWorld.java'
 				}
 			}
 
 		stage('Run') {
 				steps {
-					sh 'java -cp build Hello'
+					sh 'java -cp build HelloWorld'
 				}
 			}
 		}
