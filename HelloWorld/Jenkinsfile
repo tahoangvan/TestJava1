@@ -17,7 +17,7 @@ pipeline {
 		stage('Compile') {
 				steps {
 					sh 'mkdir -p build'
-					sh 'javac -d build src/HelloWorld.java'
+					sh 'javac -d build HelloWorld/src/HelloWorld.java'
 				}
 			}
 
