@@ -7,24 +7,24 @@ pipeline {
                 echo 'Hello World 2'
             }
         }
-    }
-	stage('Checkout') {
+		
+		stage('Checkout') {
             steps {
                 checkout scm
             }
         }
 
-	stage('Compile') {
-            steps {
-                sh 'mkdir -p build'
-                sh 'javac -d build src/Hello.java'
-            }
-        }
+		stage('Compile') {
+				steps {
+					sh 'mkdir -p build'
+					sh 'javac -d build src/Hello.java'
+				}
+			}
 
-	stage('Run') {
-            steps {
-                sh 'java -cp build Hello'
-            }
-        }
-	
+		stage('Run') {
+				steps {
+					sh 'java -cp build Hello'
+				}
+			}
+		}
 }
