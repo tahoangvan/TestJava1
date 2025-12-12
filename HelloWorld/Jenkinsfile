@@ -26,5 +26,22 @@ pipeline {
 					sh 'java -cp build HelloWorld'
 				}
 			}
-		}
+			
+		stage('Create JAR') {
+            steps {
+                sh '''
+                    mkdir -p dist
+                    echo "Main-Class: HelloWorld" > manifest.txt
+                    jar cfm dist/helloworld.jar manifest.txt -C build .
+                '''
+            }
+        }
+
+        stage('Run JAR') {
+            steps {
+                sh 'java -jar dist/helloworld.jar'
+            }
+        }
+		
+	}
 }
